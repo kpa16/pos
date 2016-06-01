@@ -1,0 +1,39 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 21, 2016, 4:36:07 AM
+    Author     : User
+*/
+
+
+/*@media(min-width:768px){
+    .btn-calc{
+        font-size: 32px;
+        padding: 6px 25px;
+    }
+}
+@media(max-width:767px){
+    .btn-calc{
+        font-size: 22px;
+        padding: 6px 18px;
+    }
+}*/
+@import url('AdminLTE.min.css');
+.btn-group-vertical > .btn.btn-number{
+    float:right;
+    width:25%;
+    border-radius:0px;
+    margin-top:0px;
+}
+
+.highlight {
+    background-color: whitesmoke !important;
+}
+
+
+.loader {
+    background: url('../img/preload-cube.gif') 50% 50% no-repeat rgb(249,249,249);
+}
