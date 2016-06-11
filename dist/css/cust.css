@@ -26,6 +26,8 @@ and open the template in the editor.
     float:right;
     width:25%;
     border-radius:0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
     margin-top:0px;
 }
 
@@ -37,3 +39,123 @@ and open the template in the editor.
 .loader {
     background: url('../img/preload-cube.gif') 50% 50% no-repeat rgb(249,249,249);
 }
+@media (min-width: 768px) {
+    #notification-box{
+        bottom:0;
+        z-index: 101;
+        position: fixed;
+        left: 20%;
+        right:20%
+    }
+}
+@media (max-width: 767px) {
+    #notification-box{
+        bottom:0;
+        z-index: 101;
+        position: fixed;
+        left: 10%;
+        right: 10%;
+    }
+}
+
+.search-bar{
+    width:100%;
+    margin-left: 50%;
+    margin-right: 50%;
+}
+
+
+
+
+.register-box-body,.lockscreen-item{
+    padding-top:0px;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+
+    -webkit-box-shadow: -1px 7px 21px -2px rgba(0,0,0,0.26);
+    -moz-box-shadow: -1px 7px 21px -2px rgba(0,0,0,0.26);
+    box-shadow: -1px 7px 21px -2px rgba(0,0,0,0.26);
+}
+.register-page{
+    background:rgba(255, 255, 255, 0.5) !important;
+}
+.headline-img{
+    margin-right: -20px;
+    margin-left:-20px;
+}
+.register-box-body  .headline-img  img{
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    -moz-border-top-right-radius: 25px;
+    -moz-border-top-left-radius: 25px;
+    -webkit-border-top-right-radius: 25px;
+    -webkit-border-top-left-radius: 25px;
+}
+
+.login-box-msg{
+    padding: 10px;
+} 
+.lockscreen{
+    background:rgba(254, 254, 254, 0.72);   
+}
+.lockscreen-footer{
+    bottom: 0;
+    position: absolute;
+    width:100%;
+    padding-bottom: 10px;
+}
+
+.login-footer{
+    width:100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.reg-image {
+    width: 100%;
+    text-align: center;
+    background: #fff;
+    padding: 5px;
+}
+
+.reg-image > img {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    width: 90px;
+    height: 90px;
+}
+/*
+.img-file-input {
+  color: transparent;
+}
+.img-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.img-file-input::before {
+  content: 'Select some files';
+  color: black;
+  display: inline-block;
+  background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.img-file-input:hover::before {
+  border-color: black;
+}
+.img-file-input:active {
+  outline: 0;
+}
+.img-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+}
+*/

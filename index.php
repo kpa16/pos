@@ -3,7 +3,6 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<?php include './pageRender.php'?>
 <html>
     <head>
         <meta charset="utf-8">
@@ -30,7 +29,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Main Header -->
             <header class="main-header">
                 <!-- Logo -->
-                <a href="index2.html" class="logo">
+                <a href="index2.php" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini">POS</span>
                     <!-- logo for regular state and mobile devices -->
@@ -89,7 +88,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                            <a href="pages/user/profile.php" class="btn btn-default btn-flat">Profile</a>
                                         </div>
                                         <div class="pull-right">
                                             <a href="#" class="btn btn-default btn-flat">Sign out</a>
@@ -136,9 +135,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                     <!-- Sidebar Menu -->
                     <ul class="sidebar-menu" id="menu-page">
-                        <li class="header">MENU</li>
+                        <li class="header">MODULE</li>
                         <!-- Optionally, you can add icons to the links -->
-                        <?php echo $menuPage;?>
+                        <li><a href="pages/dashboardldr/dashboardTemplate.php"><i class="fa fa-newspaper-o"></i> <span>Stock Dashboard</span></a></li>
+                        <li><a href="#"><i class="fa fa-user"></i> <span>User Registered</span><i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="#">User Registration</a></li>
+                                <li><a href="#">Registration Verification</a></li>
+                                <li><a href="#">Forgot & Reset Password</a></li>
+                                <li><a href="#">User Profile Display & Edit</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear"></i> <span>Application</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="#">Application Configuration</a></li>
+                                <li><a href="#">Module/Feature Activation</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-code-fork"></i> <span>Branch Management</span></a></li>
+                        <li><a href="#"><i class="fa fa-eye"></i> <span>Operator Management</span></a></li>
+                        <li><a href="pages/item/item.php"><i class="fa fa-cube"></i> <span>Item Management</span></a></li>
+                        <li><a href="#"><i class="fa fa-cubes"></i> <span>Stock Management</span></a>
+                            <ul class="treeview-menu">
+                                <li><a href="#">Purchase Item</a></li>
+                                <li><a href="#">Transfer In Item</a></li>
+                                <li><a href="#">Transfer Out Item</a></li>
+                                <li><a href="#">Adjust Item</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-user-plus"></i> <span>Customer Management</span></a></li>
+                        <li><a href="#"><i class="fa fa-truck"></i> <span>Supplier Management</span></a></li>
+                        <li><a href="pages/order/order.php"><i class="fa fa-edit"></i> <span>POS</span></a></li>
+                        <li class="treeview"><a href="#"><i class="fa fa-newspaper-o"></i> <span>Stock Report</span><i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="#">Branch Stock Report</a></li>
+                                <li><a href="#">Overall Stock Report</a></li>
+                                <li><a href="#">Branch Stock Movement Report</a></li>
+                                <li><a href="#">Overall Stock Movement Report</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview"><a href="#"><i class="fa fa-newspaper-o"></i> <span>Sales Dashboard</span><i class="fa fa-angle-left pull-right"></i></a>
+                            <ul class="treeview-menu">
+                                <li><a href="pages/dashboardldr/dashboardTemplate.php">Monthly Branch Sales Dashboard</a></li>
+                                <li><a href="pages/dashboardldr/dashboardTemplate.php">Weekly Branch Sales Dashboard</a></li>
+                                <li><a href="pages/dashboardldr/dashboardTemplate.php">Daily Branch Sales Dashboard</a></li>
+                                <li><a href="pages/dashboardldr/dashboardTemplate.php">Monthly Branch Profit Dashboard</a></li>
+                                <li><a href="#">Weekly Branch Profit Dashboard</a></li>
+                                <li><a href="#">Daily Branch Profit Dashboard</a></li>
+                                <li><a href="#">Overall Sales Trend</a></li>
+                                <li><a href="#">Overall Profit Trend</a></li>
+                                <li><a href="#">Branch Sales Trend</a></li>
+                                <li><a href="#">Branch Profit Trend</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="pages/dashboardldr/dashboardTemplate.php"><i class="fa fa-newspaper-o"></i> <span>Stock Dashboard</span></a></li>
                     </ul><!-- /.sidebar-menu -->
                 </section>
                 <!-- /.sidebar -->
@@ -158,7 +208,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </footer>
 
             <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
+            <aside class="control-sidebar control-sidebar-dark" hidden>
                 <!-- Create the tabs -->
                 <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
                     <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
@@ -229,42 +279,83 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- DataTables -->
         <script src="plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <!-- chart 
+        <script src="plugins/chartjs/Chart.min.js"></script>
+        -->
+        <script src="plugins/chartjs/Chart.js"></script>
         <script src="dist/js/app.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaLbcKL-Bx5R39OWnPFdp_w-O5djZhzBI&libraries=places" async defer></script>
         <script>
-            'use strict';
             var tarContent = $("#page-content-menu");
-            $(document)
-                    .ajaxStart(function () {
-                        tarContent.addClass('loader');
-                    })
-                    .ajaxSuccess(function (data) {
-                        tarContent.removeClass('loader');
-                    })
-                    .ajaxError(function (event, jqhr, gatau) {
-                        tarContent.load(tarContent.html(jqhr.responseText));
-                    });
             $(document).ready(function () {
-                tarContent.load('pages/dashboard/dashboard.php');
-                $("#menu-page li a").on("click", function (e) {
+                tarContent.load('pages/order/order.php');
+                $('a').on('click', function (e) {
                     e.preventDefault();
-                    if ($(this).parents("#menu-page").length === 1) {
-                        var link = $(this).attr('href');
-                        e.preventDefault();
-                        if (link !== '#') {
-                            tarContent.empty();
-                            $("#menu-page li").removeClass("active");
-                            $(this).parent("li").addClass("active");
-                            tarContent.load(link + '.php');
-                            if ($("body").hasClass("sidebar-open")) {
-                                $("body").removeClass("sidebar-open").removeClass("sidebar-collapse").trigger("collapsed.pushMenu");
-                            }
-                        }
+                    var link = $(this).attr('href');
+                    if (link !== '#') {
+                        tarContent.load(link);
                     }
-
-                    //$("body").hasClass("sidebar-collapse"); ? $("body").removeClass("sidebar-collapse").trigger("expanded.pushMenu"); : $("body").addClass("sidebar-collapse").trigger("collapsed.pushMenu"); : $("body").hasClass("sidebar-open"); ? $("body").removeClass("sidebar-open").removeClass("sidebar-collapse").trigger("collapsed.pushMenu"); : $("body").addClass("sidebar-open").trigger("expanded.pushMenu");
-
                 });
+                /*
+                 var statePg = window.location.href.split('#');
+                 if (statePg[1] !== '') {
+                 $("#menu-page li").removeClass("active");
+                 $('a[href="#' + statePg[1] + '"]').parent("li").addClass("active");
+                 tarContent.load(statePg[1] + '.php');
+                 } else {
+                 //tarContent.load('pages/dashboard/dashboard.php');
+                 e.preventDefault();
+                 }
+                 
+                 $("#menu-page>li>a").on("click", function (e) {
+                 if ($(this).parents("#menu-page").length === 1) {
+                 var link = $(this).attr('href').replace('#', '');
+                 var ckState = $(this).attr('href').split("#");
+                 if (link !== '#' && ckState[1] !== undefined) {
+                 tarContent.empty();
+                 $("#menu-page li").removeClass("active");
+                 $(this).parent("li").addClass("active");
+                 tarContent.load(link + '.php');
+                 if ($("body").hasClass("sidebar-open")) {
+                 $("body").removeClass("sidebar-open").removeClass("sidebar-collapse").trigger("collapsed.pushMenu");
+                 }
+                 } else {
+                 e.preventDefault();
+                 }
+                 }
+                 
+                 //$("body").hasClass("sidebar-collapse"); ? $("body").removeClass("sidebar-collapse").trigger("expanded.pushMenu"); : $("body").addClass("sidebar-collapse").trigger("collapsed.pushMenu"); : $("body").hasClass("sidebar-open"); ? $("body").removeClass("sidebar-open").removeClass("sidebar-collapse").trigger("collapsed.pushMenu"); : $("body").addClass("sidebar-open").trigger("expanded.pushMenu");
+                 */
+            }).ajaxStart(function () {
+                tarContent.addClass('loader');
+            }).ajaxSuccess(function (data) {
+                tarContent.removeClass('loader');
+            }).ajaxError(function (event, jqhr, gatau) {
+                tarContent.php('<div class="row text-center">' + jqhr.responseText + '</div>');
             });
+            jQuery.calsum = function calsum(price, qty) {
+                var result = price * qty;
+                return result;
+            };
+            jQuery.caldiv = function caldiv(price, qty) {
+                var result = price / qty;
+                return result;
+            };
+            jQuery.caldec = function caldec(price, qty) {
+                var result = price - qty;
+                return result;
+            };
+            jQuery.calinc = function calinc(price, qty) {
+                var result = price + qty;
+                return result;
+            };
+            jQuery.normalNum = function normalNum(num) {
+                return num.replace(/,/g, '');
+            };
+            Number.prototype.formatMoney = function (n, x) {
+                var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+                return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
+            };
         </script>
     </body>
 </html>

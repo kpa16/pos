@@ -6,8 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Order Page</title>
+        <title>Item Management</title>
 
         <style>
             tbody > tr{
@@ -37,25 +36,25 @@ and open the template in the editor.
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Name</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control"  placeholder="Item Name">
+                                            <input type="text" class="form-control"  placeholder="Item Name" required="true"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Stock</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control"  placeholder="Stock" required>
+                                            <input type="number" class="form-control"  placeholder="Stock" required="true"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Warning Stock</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control"  placeholder="Warning Stock" required>
+                                            <input type="number" class="form-control"  placeholder="Warning Stock" required="true"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-sm-2 control-label">Price</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control"  placeholder="Price" required>
+                                            <input type="number" class="form-control"  placeholder="Price" required="true"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -80,7 +79,7 @@ and open the template in the editor.
                                 <table class="table table-hover" id="itemListData">
                                     <thead>
                                         <tr>
-                                            <th><input name="select_all" value="1" type="checkbox" onclick="selectAll()"></th>
+                                            <th><input name="select_all" value="1" type="checkbox" onclick="selectAll()"/></th>
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Stock</th>
@@ -136,6 +135,7 @@ and open the template in the editor.
                 var modalEdit = $("#modalEdit");
                 var tListItemData = $("#itemListData").DataTable({
                     dom: 'Bfrtip',
+                    stateSave:true,
                     columnDefs: [{
                             targets: 0,
                             searchable: false,
