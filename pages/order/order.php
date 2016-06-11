@@ -420,7 +420,6 @@ and open the template in the editor.
             } else if (selectorAlert === 'alert-warning') {
                 icon = '<i class="icon fa fa-warning"></i>';
             }
-            console.log('class before ' + classAlertBefore + ' selected class ' + selectorAlert);
             if (classAlertBefore !== selectorAlert) {
                 $('#alert-box').removeClass(classAlertBefore);
                 classAlertBefore = selectorAlert;
@@ -537,8 +536,6 @@ and open the template in the editor.
                             } else {
                                 b = 0;
                             }
-
-                            console.log('a : ' + a + ' b :' + b);
                             return intVal(a) + b;
                         }, 0);
                 // Update footer Discount
@@ -587,7 +584,14 @@ and open the template in the editor.
                         } else if (char === 8) {
                             e.preventDefault();
                             id = 'del';
-                            qtyNumber = qtyNumber.slice(0, -1);
+                            if (qtyNumber === '') {
+                                qtyNumber = holdItem[1].toString().slice(0, -1);
+                            } else {
+                                qtyNumber = qtyNumber.slice(0, -1);
+                                if (qtyNumber === '') {
+                                    qtyNumber = '0';
+                                }
+                            }
                         } else if (char === 46) {
                             if (dataItemOrder[0].indexOf('$$$') === -1) {
                                 dataItemList[2] = parseInt(dataItemList[2]) + parseInt(dataItemOrder[1]);
@@ -723,7 +727,14 @@ and open the template in the editor.
                                 qtyNumber += String.fromCharCode(char).toString();
                             } else if (char === 8) {
                                 e.preventDefault();
-                                qtyNumber = qtyNumber.slice(0, -1);
+                                if (qtyNumber === '') {
+                                    qtyNumber = holdItem[1].toString().slice(0, -1);
+                                } else {
+                                    qtyNumber = qtyNumber.slice(0, -1);
+                                    if (qtyNumber === '') {
+                                        qtyNumber = '0';
+                                    }
+                                }
                             } else if (char === 46) {
                                 dataItemList[2] = parseInt(dataItemList[2]) + parseInt(dataItemOrder[1]);
                                 tListItem.row(idxItemList).data(dataItemList).draw();
