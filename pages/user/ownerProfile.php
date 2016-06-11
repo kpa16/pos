@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Profile
+            Owner Profile
         </h1>
     </section>
     <!-- Main content -->
@@ -25,15 +25,21 @@
                                 </div>
                             </div>
                             <div class="text-center"><small>The best result use same width and height</small></div>
-
+                            
                             <div class="form-group">
-                                <label for="inputName" class="col-sm-2 control-label">Full Name</label>
+                                <label class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="email" class="form-control" id="putFullName" placeholder="Full Name" />
+                                    <input type="text" class="form-control" id="putFullName" placeholder="Owner Name" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+                                <label class="col-sm-2 control-label">Full Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="putFullName" placeholder="Owner Full Name" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Email</label>
                                 <div class="col-sm-10">
                                     <input type="email" class="form-control" id="putEmail" placeholder="Email" />
                                 </div>
@@ -45,26 +51,26 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputShop" class="col-sm-2 control-label">Location</label>
+                                <label class="col-sm-2 control-label">Location</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" placeholder="Your Location" name="putLocation" id="location"/>
                                     <input type="hidden" class="form-control" name="putLatLng" id="latLng" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputShop" class="col-sm-2 control-label">Shop</label>
+                                <label class="col-sm-2 control-label">Shop</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control" id="putShop" placeholder="Your Shop Name" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputName" class="col-sm-2 control-label">Password</label>
+                                <label class="col-sm-2 control-label">Password</label>
                                 <div class="col-sm-10">
                                     <input type="password" class="form-control" id="putPassword" placeholder="Password" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputSkills" class="col-sm-2 control-label">Retype Password</label>
+                                <label class="col-sm-2 control-label">Retype Password</label>
                                 <div class="col-sm-10">
                                     <input type="password" class="form-control" id="putRetypePassword" placeholder="Retype Password"/>
                                 </div>
@@ -75,9 +81,6 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
-                    <div class="box-footer">
-
                     </div>
                 </div>
             </div>
