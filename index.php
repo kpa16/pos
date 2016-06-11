@@ -138,14 +138,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="header">MODULE</li>
                         <!-- Optionally, you can add icons to the links -->
                         <li><a href="pages/dashboardldr/dashboardTemplate.php"><i class="fa fa-newspaper-o"></i> <span>Stock Dashboard</span></a></li>
-                        <li><a href="#"><i class="fa fa-user"></i> <span>User Registered</span><i class="fa fa-angle-left pull-right"></i></a>
-                            <ul class="treeview-menu">
-                                <li><a href="#">User Registration</a></li>
-                                <li><a href="#">Registration Verification</a></li>
-                                <li><a href="#">Forgot & Reset Password</a></li>
-                                <li><a href="#">User Profile Display & Edit</a></li>
-                            </ul>
-                        </li>
                         <li><a href="#"><i class="fa fa-gear"></i> <span>Application</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 <li><a href="#">Application Configuration</a></li>
