@@ -53,27 +53,9 @@
         </div>
     </section>
 </div>
-<script>
-    $(function () {
-        var randomScalingFactor = function () {
-            return Math.round(Math.random() * 100);
-        };
-        var randomColorFactor = function () {
-            return Math.round(Math.random() * 255);
-        };
-        var randomColor = function (opacity) {
-            return 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
-        };
-        function getRandomColor(numColor) {
-            var arrColor = [];
-            for (var i = 0; i < numColor; i++) {
-                arrColor[i] = randomColor(0.5);
-            }
-            console.log(arrColor);
-            return arrColor;
-        }
-
-        //THIS IS FOR PARAMETER DATA TABLE
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*THIS CONFIGURATION FOR TABLE DASHBOARD*/
         var selectorTable = '#myDashboard';
         var $detItemBranchSale = $('#detailItemBranchSales');
         //for column name table
@@ -81,18 +63,17 @@
         //target idx column colored progress bar
         var idxTargetColor = 1;
         //this data must same length from chart label
-        var dataTable = [['1', '30', 'Rp 75,000,000'], ['2', '45', 'Rp 130,000,000'], ['3', '20', 'Rp 20,000,000'], ['4', '50', 'Rp 250,000,000'], ['5', '78', 'Rp 500,000,000'], ['6', '90', 'Rp 700,000,000']];
-        //PARAMETER TABLE DATA CHART
-        var labelChart = ["1", "2", "3", "4", "5", "6"];
-        var bgColor = getRandomColor(labelChart.length);
-        var dataChart = [12, 19, 3, 5, 2, 3];
-        
-        //PARAM COLLAPSE LINE CHART
-        $collapseLineChart = $('#collapseLineChart');
-        
+        var datatableJSON = [['1', '30', 'Rp 75,000,000'], ['2', '45', 'Rp 130,000,000'], ['3', '20', 'Rp 20,000,000'], ['4', '50', 'Rp 250,000,000'], ['5', '78', 'Rp 500,000,000'], ['6', '90', 'Rp 700,000,000']];
+
 
 
         /*THIS CONFIGURATION FOR PIE CHART*/
+        var pieDataJSON = {
+            title: 'Add Your Title Here',
+            label: ["1", "2", "3", "4", "5", "6"],
+            data: [12, 19, 3, 5, 2, 3]
+        };
+        var bgColor = getRandomColorRGB(pieDataJSON.label.length);
         var $pieChart = $('#branchSalesChart');
         var pieChart = new Chart($pieChart, {
             type: 'pie',
@@ -102,10 +83,10 @@
             },
             events: ['click'],
             data: {
-                labels: labelChart,
+                labels: pieDataJSON.label,
                 datasets: [{
-                        label: labelChart,
-                        data: dataChart,
+                        label: pieDataJSON.label,
+                        data: pieDataJSON.data,
                         backgroundColor: bgColor,
                         borderWidth: 1.2,
                         mode: 'highlight'
@@ -116,7 +97,7 @@
                 responsiveAnimationDuration: 1000,
                 title: {
                     display: true,
-                    text: 'Weekly Sales Chart'
+                    text: pieDataJSON.title
                 },
                 tooltips: {
                     mode: 'label',
@@ -145,7 +126,20 @@
                 }
             }
         });
-        
+
+
+
+        /*ELEMENT SELECTOR FOR COLLAPSE LINE*/
+        var $collapseLineChart = $('#collapseLineChart');
+        /*THIS CONFIGURATION FOR LINE CHART*/
+        var barDataJSON = {
+            title: 'Item in sales Branch 1 (Weekly)',
+            labels: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7"],
+            datasets: [
+                {label: 'Branch 1', data: [65, 59, 80, 81, 56, 53, 92]}
+            ]
+        };
+        var itemBgColor = getRandomColorRGB(barDataJSON.labels.length);
         var $barChart = $('#branchItemBarChart');
         var lineChart = new Chart($barChart, {
             type: 'bar',
@@ -154,11 +148,11 @@
                 animateScale: true
             },
             data: {
-                labels: labelChart,
+                labels: barDataJSON.labels,
                 datasets: [{
-                        label: labelChart,
-                        data: dataChart,
-                        backgroundColor: bgColor,
+                        label: barDataJSON.datasets[0].label,
+                        data: barDataJSON.datasets[0].data,
+                        backgroundColor: itemBgColor,
                         borderWidth: 1.2,
                         mode: 'highlight'
                     }]
@@ -168,7 +162,7 @@
                 responsiveAnimationDuration: 1000,
                 title: {
                     display: true,
-                    text: 'Item in sales Branch 1 (Weekly)'
+                    text: barDataJSON.title
                 },
                 tooltips: {
                     mode: 'label'
@@ -180,16 +174,16 @@
                 }
             }
         });
-        
+
         $pieChart.on('click', function (evt) {
             //            var dataChart = myChart.getDatasetAtEvent(evt);  
             //            console.log(dataChart);
-            
+
             $collapseLineChart.collapse();
             /*
-            var sesuatu = myChart.generateLegend();
-            console.log(sesuatu);
-            /*
+             var sesuatu = myChart.generateLegend();
+             console.log(sesuatu);
+             /*
              var activepoint = myChart.getElementsAtEvent(evt);
              var seen = [];
              console.log(activepoint);
@@ -205,12 +199,20 @@
              console.log(seen);//[94].label
              */
         });
-
-        /*CONFIGURATION FOR LINE CHART*/
-
-        fillDashboardTable(selectorTable, colName, bgColor, idxTargetColor, dataTable);
+        //filling dashboard table
+        fillDashboardTable(selectorTable, colName, bgColor, idxTargetColor, datatableJSON);
     });
-
+    function RGBrandomColor(opacity) {
+        return 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+    }
+    function getRandomColorRGB(numColor) {
+        var arrColor = [];
+        for (var i = 0; i < numColor; i++) {
+            arrColor[i] = RGBrandomColor(0.5);
+        }
+        console.log(arrColor);
+        return arrColor;
+    }
     /*FILING PROGRESS BAR TABLE*/
     function fillDashboardTable(selector, colNames, bgColors, idxtargetColor, datas) {
         var $table = selector;

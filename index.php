@@ -16,6 +16,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link rel="stylesheet" href="font-awesome-4.6.1/css/font-awesome.min.css">
         <!-- Ionicons -->
         <link rel="stylesheet" href="ionic-v2.0.1/css/ionicons.min.css">
+        <!-- daterange picker -->
+        <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker-bs3.css">
         <!-- DataTable -->
         <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
         <!-- Theme style -->
@@ -172,12 +174,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <li><a href="pages/dashboardldr/dashboardTemplate.php">Weekly Branch Sales Dashboard</a></li>
                                 <li><a href="pages/dashboardldr/dashboardTemplate.php">Daily Branch Sales Dashboard</a></li>
                                 <li><a href="pages/dashboardldr/dashboardTemplate.php">Monthly Branch Profit Dashboard</a></li>
-                                <li><a href="#">Weekly Branch Profit Dashboard</a></li>
-                                <li><a href="#">Daily Branch Profit Dashboard</a></li>
-                                <li><a href="#">Overall Sales Trend</a></li>
-                                <li><a href="#">Overall Profit Trend</a></li>
-                                <li><a href="#">Branch Sales Trend</a></li>
-                                <li><a href="#">Branch Profit Trend</a></li>
+                                <li><a href="pages/dashboardldr/dashboardTemplate.php">Weekly Branch Profit Dashboard</a></li>
+                                <li><a href="pages/dashboardldr/dashboardTemplate.php">Daily Branch Profit Dashboard</a></li>
+                                <li><a href="pages/dashboardldr/trendChartTemplate.php">Overall Sales Trend</a></li>
+                                <li><a href="pages/dashboardldr/trendChartTemplate.php">Overall Profit Trend</a></li>
+                                <li><a href="pages/dashboardldr/trendChartTemplate.php">Branch Sales Trend</a></li>
+                                <li><a href="pages/dashboardldr/trendChartTemplate.php">Branch Profit Trend</a></li>
                             </ul>
                         </li>
                         <li><a href="pages/dashboardldr/dashboardTemplate.php"><i class="fa fa-newspaper-o"></i> <span>Stock Dashboard</span></a></li>
@@ -268,18 +270,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
         <!-- Bootstrap 3.3.5 -->
         <script src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- date-range-picker -->
+        <script src="plugins/moment/moment.js"></script>
+        <script src="plugins/daterangepicker/daterangepicker.js"></script>
         <!-- DataTables -->
         <script src="plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-        <!-- chart 
-        <script src="plugins/chartjs/Chart.min.js"></script>
-        -->
+        <!-- chart -->
         <script src="plugins/chartjs/Chart.js"></script>
         <script src="dist/js/app.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaLbcKL-Bx5R39OWnPFdp_w-O5djZhzBI&libraries=places" async defer></script>
         <script>
             var tarContent = $("#page-content-menu");
-            $(document).ready(function () {
+            $(function () {
                 tarContent.load('pages/order/order.php');
                 $('a').on('click', function (e) {
                     e.preventDefault();
